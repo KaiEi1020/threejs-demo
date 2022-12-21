@@ -1,5 +1,5 @@
 /**
- *  1. 控制物体移动，缩放，旋转
+ *  requestAnimationFrame 时间参数控制物体动画
  */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -55,12 +55,11 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
 
-function render() {
-  cube.position.x += 0.01;
-  cube.rotation.x += 0.01;
-  if(cube.position.x > 5) {
-    cube.position.x = 0;
-  }
+
+
+function render(time = 0) {
+  const t = time / 1000;
+  cube.position.x = 1 * t % 5;
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }

@@ -1,8 +1,9 @@
 /**
- *  1. 控制物体移动，缩放，旋转
+ *  使用GSAP设置各种动画效果
  */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
+import gsap from 'gsap';
 
 // 1. 创建场景
 const scene = new THREE.Scene();
@@ -55,12 +56,13 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
 
+const clock = new THREE.Clock();
+
+gsap.to(cube.position, { x: 5, duration: 5 });
+gsap.to(cube.rotation, { x: 2 * Math.PI, duration: 5 });
+
+
 function render() {
-  cube.position.x += 0.01;
-  cube.rotation.x += 0.01;
-  if(cube.position.x > 5) {
-    cube.position.x = 0;
-  }
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }

@@ -1,5 +1,5 @@
 /**
- *  1. 控制物体移动，缩放，旋转
+ *  Clock 跟踪时间处理动画
  */
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -55,12 +55,14 @@ const controls = new OrbitControls(camera, renderer.domElement);
 const axesHelper = new THREE.AxesHelper(5);
 scene.add(axesHelper);
 
+const clock = new THREE.Clock();
+
 function render() {
-  cube.position.x += 0.01;
-  cube.rotation.x += 0.01;
-  if(cube.position.x > 5) {
-    cube.position.x = 0;
-  }
+  // 获取时钟运行总时长
+  const t = clock.getElapsedTime();
+  // console.log('t', t);
+  cube.position.x = 1 * t % 5;
+
   renderer.render(scene, camera);
   requestAnimationFrame(render);
 }

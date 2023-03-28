@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>demo</title>
+  </head>
+  <body>
+    <script type="module" src="./main.ts"></script>
+    <script id="vertex-shader" type="x-shader/x-vertex">
+      void main(){
+        gl_Position = vec4( position, 1.0 );
+      }
+    </script>
+
+    <script id="fragment-shader" type="x-shader/x-fragment">
+      void main() {
+        gl_FragColor = vec4(1.0,0.0,0.0,1.0);
+      }
+    </script>
+  </body>
+</html>

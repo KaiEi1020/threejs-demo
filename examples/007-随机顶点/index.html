@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        margin: 0;
+        overscroll-behavior: none;
+        overflow: hidden;
+        color: #ddd;
+        background: #03060e;
+        font-family: Helvetica;
+
+      }
+      .label {
+        max-width: 84px;
+        font-size: 12px;
+        color: #526592;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+      }
+      .center {
+        /* background: pink; */
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        user-select: none;
+      }
+
+      .center img {
+        width: 160px;
+        height: 160px;
+        -webkit-user-drag: none;
+      }
+    </style>
+  </head>
+  <body>
+    <canvas id="canvas"></canvas>
+    <div class="center">
+      <img src="./highlight.png" alt="aa" />
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
